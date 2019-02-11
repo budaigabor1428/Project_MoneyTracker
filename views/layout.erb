@@ -5,6 +5,22 @@
     <title>MONEY TRACKER</title>
   </head>
   <body>
-    <%= yield %>
+  <%= yield %>
+    <nav>
+      <ul>
+        <li>
+          <a href="/money-tracker/transactions/new">New transaction</a>
+        </li>
+        <li>
+          <a href="/money-tracker/merchants">Merchants</a>
+        </li>
+        <li>
+          <a href="/money-tracker/tags">Tags</a>
+        </li>
+        <li>
+          <a href="/money-tracker/transactions">Transactions</a>
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>

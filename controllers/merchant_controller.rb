@@ -3,7 +3,7 @@ require('sinatra/contrib/all')
 require_relative('../models/merchant.rb')
 also_reload('../models/*')
 
-get 'money-tracker/merchants' do
+get '/money-tracker/merchants' do
   @merchants = Merchant.all()
   erb (:"merchants/index")
 end
@@ -18,7 +18,6 @@ get '/money-tracker/merchants/new' do
 end
 
 post '/money-tracker/merchants' do
-  @merchants = Merchant.new(params)
-  @merchants.save()
-  erb(:"merchants/create")
+  Merchant.new(params).save
+  redirect to '/money-tracker/merchants'
 end

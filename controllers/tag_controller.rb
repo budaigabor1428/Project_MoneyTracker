@@ -4,11 +4,20 @@ require_relative('../models/tag.rb')
 also_reload('../models/*')
 
 get 'money-tracker/tags' do
-  @merchants = Merchant.all()
-  erb (:"merchants/index")
+  @tags = Tag.all()
+  erb (:"tags/index")
 end
 
 get 'money-tracker/tags/:id' do
-  @merchants = Merchant.find(params['id'].to_i)
-  erb(:"merchants/show")
+  @tags = Tag.find(params['id'].to_i)
+  erb(:"tags/show")
+end
+
+get '/money-tracker/tags/new' do
+  erb(:"tags/new")
+end
+
+post '/money-tracker/tags' do
+  Tag.new(params).save
+  redirect to '/money-tracker/tags'
 end

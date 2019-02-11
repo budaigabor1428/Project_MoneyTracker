@@ -1,0 +1,20 @@
+<h1>Transactions</h1>
+
+<table>
+  <tr>
+    <th>Amount</th>
+    <th></th>
+    <th>Merchant</th>
+    <th></th>
+    <th>Tag</th>
+  </tr>
+  <% for transaction in @transactions %>
+  <tr>
+    <td><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.amount %></a></td>
+    <td>|</td>
+    <td><%= transaction.merchant %></td>
+    <td>|</td>
+    <td><%= transaction.tag %></td>
+  </tr>
+  <% end %>
+</table>
