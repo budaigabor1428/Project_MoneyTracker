@@ -8,11 +8,6 @@ get '/money-tracker/merchants' do
   erb (:"merchants/index")
 end
 
-get 'money-tracker/merchants/:id' do
-  @merchants = Merchant.find(params['id'].to_i)
-  erb(:"merchants/show")
-end
-
 get '/money-tracker/merchants/new' do
   erb(:"merchants/new")
 end
@@ -20,4 +15,9 @@ end
 post '/money-tracker/merchants' do
   Merchant.new(params).save
   redirect to '/money-tracker/merchants'
+end
+
+get 'money-tracker/merchants/:id' do
+  @merchants = Merchant.find(params['id'].to_i)
+  erb(:"merchants/show")
 end

@@ -11,8 +11,7 @@ attr_reader :id
   end
 
     def save()
-        sql = "INSERT INTO tags
-        (name) VALUES ($1) RETURNING id"
+        sql = "INSERT INTO tags (name) VALUES ($1) RETURNING id"
         values = [@name]
         results = SqlRunner.run(sql, values)
         @id = results.first()['id'].to_i
