@@ -13,17 +13,7 @@ attr_reader :id
   end
 
     def save()
-        sql = "INSERT INTO transactions
-        (
-          amount,
-          merchant_id,
-          tag_id
-        )
-        VALUES
-        (
-          $1, $2, $3
-        )
-        RETURNING id"
+        sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES ($1, $2, $3) RETURNING id"
         values = [@amount, @merchant_id, @tag_id]
         results = SqlRunner.run(sql, values)
         @id = results.first()['id'].to_i
