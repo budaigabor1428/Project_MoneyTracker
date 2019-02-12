@@ -5,9 +5,12 @@
   </tr>
   <% for transaction in @transactions %>
   <tr>
-    <td>
-      <li><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.merchant.name %><%= transaction.tag.name %><%= transaction.amount %></a></td>
-      </li>
+      <div class="transaction">
+        <h3><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.amount %></a></h3>
+        <p>Merchant: <%= transaction.merchant.name %></p>
+        <p>Tag: <%= transaction.tag.name.capitalize %></p>
+      </div>
+
   </tr>
   <% end %>
 </table>
