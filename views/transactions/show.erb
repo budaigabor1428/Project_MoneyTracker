@@ -1,7 +1,10 @@
 
 <p>Amount: <%= @transactions.amount%></p>
-<p>Merchant: <%= @transactions.merchant %></p>
-<p>Tag: <%= @transactions.tag%></p>
-
+<a href="/money-tracker/transactions/<%= @transactions.id %>/edit">Edit</a>
+<form action="/money-tracker/transactions/<%= @transactions.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<p>Merchant: <%= @transactions.merchant.name %></p>
+<a href="/money-tracker/transactions/<%= @transactions.id %>/edit">Edit</a>
+<form action="/money-tracker/transactions/<%= @transactions.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<p>Tag: <%= @transactions.tag.name%></p>
 <a href="/money-tracker/transactions/<%= @transactions.id %>/edit">Edit</a>
 <form action="/money-tracker/transactions/<%= @transactions.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
