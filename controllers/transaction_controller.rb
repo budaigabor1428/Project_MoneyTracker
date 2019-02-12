@@ -32,7 +32,7 @@ post '/money-tracker/transactions/:id' do
   redirect to '/money-tracker/transactions'
 end
 
-get 'money-tracker/transactions/:id' do
+get '/money-tracker/transactions/:id' do
   @transactions = Transaction.find(params['id'].to_i)
   erb(:"transactions/show")
 end
