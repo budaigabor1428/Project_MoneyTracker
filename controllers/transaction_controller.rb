@@ -20,7 +20,7 @@ end
 post '/money-tracker/transactions' do
     @transactions = Transaction.new(params)
     @transactions.save()
-  erb(:"transactions/create")
+    redirect to '/money-tracker/transactions'
 end
 
 get '/money-tracker/transactions/:id/edit' do
