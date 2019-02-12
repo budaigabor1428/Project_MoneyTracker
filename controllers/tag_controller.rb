@@ -17,7 +17,24 @@ post '/money-tracker/tags' do
   redirect to '/money-tracker/tags'
 end
 
+get '/money-tracker/tags/:id/edit' do
+  @tag = Tag.find(params['id'])
+  erb(:"tags/edit")
+end
+
+post '/money-tracker/tags/:id' do
+  tag = Tag.new(params)
+  tag.update
+  redirect to '/money-tracker/tags'
+end
+
 get '/money-tracker/tags/:id' do
   @tag = Tag.find(params['id'].to_i)
   erb(:"tags/show")
+end
+
+post '/money-tracker/tags/:id/delete' do
+  tag = Tag.find(params['id'])
+  tag.delete
+  redirect to '/money-tracker/tags'
 end

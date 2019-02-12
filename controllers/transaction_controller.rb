@@ -21,7 +21,24 @@ post '/money-tracker/transactions' do
   erb(:"transactions/create")
 end
 
+get '/money-tracker/transactions/:id/edit' do
+  @transactions = Transaction.find(params['id'])
+  erb(:"transactions/edit")
+end
+
+post '/money-tracker/transactions/:id' do
+  transaction = Transaction.new(params)
+  transaction.update
+  redirect to '/money-tracker/transactions'
+end
+
 get 'money-tracker/transactions/:id' do
   @transactions = Transaction.find(params['id'].to_i)
   erb(:"transactions/show")
+end
+
+post '/money-tracker/tags/:id/delete' do
+  tag = Tag.find(params['id'])
+  tag.delete
+  redirect to '/money-tracker/tags'
 end

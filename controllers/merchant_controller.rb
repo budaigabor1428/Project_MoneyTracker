@@ -33,8 +33,8 @@ get '/money-tracker/merchants/:id' do
   erb(:"merchants/show")
 end
 
-post '/students/:id/delete' do
-  student = Student.find(params['id'])
-  student.delete
-  redirect to '/students'
+post '/money-tracker/merchants/:id/delete' do
+  merchant = Merchant.find(params['id'])
+  merchant.delete
+  redirect to '/money-tracker/merchants'
 end

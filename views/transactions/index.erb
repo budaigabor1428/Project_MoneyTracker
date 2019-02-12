@@ -2,16 +2,12 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>
-        <a href="/money-tracker/transactions/new">New tag</a>
-    </th>
   </tr>
   <% for transaction in @transactions %>
   <tr>
-    <td><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.amount %></a></td>
-    <p>Merchant: <%= transaction.merchant.name %></p>
-    <p>Tag: <%= transaction.tag.name %></p>
+    <td>
+      <li><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.amount %><%= transaction.merchant.name %><%= transaction.tag.name %></a></td>
+      </li>
   </tr>
   <% end %>
 </table>
