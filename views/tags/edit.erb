@@ -1,10 +1,10 @@
-<h2>Edit <%= @merchant.name %></h2>
-<form method="POST" action="/money-tracker/merchants/<%= @merchant.id %>">
+<h2>Edit <%= @tag.name %></h2>
+<form method="POST" action="/money-tracker/tags/<%= @tag.id %>">
   <div class="form-wrapper">
 
     <div class="form-el">
       <label for="name">Name:</label>
-      <input type="text" name="name" id="name" value="<%= @merchant.name %>"/>
+      <input type="text" name="name" id="name" value="<%= @tag.name %>"/>
     </div>
 
     <div class="form-el">

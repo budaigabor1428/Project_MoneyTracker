@@ -18,18 +18,18 @@ post '/money-tracker/merchants' do
 end
 
 get '/money-tracker/merchants/:id/edit' do
-  @merchants = Merchant.find(params['id'])
-  erb(:edit)
+  @merchant = Merchant.find(params['id'])
+  erb(:"merchants/edit")
 end
 
 post '/money-tracker/merchants/:id' do
   merchant = Merchant.new(params)
   merchant.update
-  redirect to "/money-tracker/merchants/#{params['id']}"
+  redirect to '/money-tracker/merchants'
 end
 
 get '/money-tracker/merchants/:id' do
-  @merchants = Merchant.find(params['id'].to_i)
+  @merchant = Merchant.find(params['id'].to_i)
   erb(:"merchants/show")
 end
 

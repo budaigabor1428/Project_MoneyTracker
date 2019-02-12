@@ -4,7 +4,7 @@ require_relative('../models/tag.rb')
 also_reload('../models/*')
 
 get '/money-tracker/tags' do
-  @tags = Tag.all()
+  @tag = Tag.all()
   erb (:"tags/index")
 end
 
@@ -18,6 +18,6 @@ post '/money-tracker/tags' do
 end
 
 get '/money-tracker/tags/:id' do
-  @tags = Tag.find(params['id'].to_i)
+  @tag = Tag.find(params['id'].to_i)
   erb(:"tags/show")
 end
