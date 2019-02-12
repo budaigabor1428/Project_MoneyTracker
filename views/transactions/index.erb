@@ -6,7 +6,7 @@
   <% for transaction in @transactions %>
   <tr>
     <td>
-      <li><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.amount %><%= transaction.merchant.name %><%= transaction.tag.name %></a></td>
+      <li><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.merchant.name %><%= transaction.tag.name %><%= transaction.amount %></a></td>
       </li>
   </tr>
   <% end %>
