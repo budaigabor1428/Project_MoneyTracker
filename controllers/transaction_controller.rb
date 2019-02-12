@@ -24,7 +24,10 @@ post '/money-tracker/transactions' do
 end
 
 get '/money-tracker/transactions/:id/edit' do
+  @merchants = Merchant.all
+  @tags = Tag.all
   @transactions = Transaction.find(params['id'])
+
   erb(:"transactions/edit")
 end
 
