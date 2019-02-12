@@ -12,6 +12,8 @@ get '/money-tracker/transactions' do
 end
 
 get '/money-tracker/transactions/new' do
+    @merchants = Merchant.all
+    @tags = Tag.all
   erb(:"transactions/new")
 end
 

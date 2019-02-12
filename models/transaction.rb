@@ -66,7 +66,7 @@ attr_reader :id
       values = [@id]
       SqlRunner.run(sql, values)
     end
-    # 
+
     # def self.amount_sum()
     #   sql = "SELECT amount FROM transactions"
     #   results = SqlRunner.run(sql)
@@ -74,8 +74,8 @@ attr_reader :id
     #   result = 0
     #     for amount in amount_array
     #       result += amount
-    #     return result
+    #       return result
+    #     end
     #   end
-    # end
 
 end
