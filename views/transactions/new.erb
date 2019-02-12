@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<form method="post" action="/money-tracker/transactions/new">
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>New transaction</title>
+<h2>New tag</h2>
+<form method="POST" action="/money-tracker/tags">
+  <div class="form-wrapper">
 
-  </head>
-  <body>
+    <div class="form-el">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name"/>
+    </div>
 
-  </body>
-</html>
+    <div class="form-el">
+      <input type="submit" value="Added"/>
+    </div>
+
+  </div>
+</form>

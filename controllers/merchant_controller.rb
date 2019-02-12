@@ -17,7 +17,24 @@ post '/money-tracker/merchants' do
   redirect to '/money-tracker/merchants'
 end
 
-get 'money-tracker/merchants/:id' do
+get '/money-tracker/merchants/:id/edit' do
+  @merchants = Merchant.find(params['id'])
+  erb(:edit)
+end
+
+post '/money-tracker/merchants/:id' do
+  merchant = Merchant.new(params)
+  merchant.update
+  redirect to "/money-tracker/merchants/#{params['id']}"
+end
+
+get '/money-tracker/merchants/:id' do
   @merchants = Merchant.find(params['id'].to_i)
   erb(:"merchants/show")
+end
+
+post '/students/:id/delete' do
+  student = Student.find(params['id'])
+  student.delete
+  redirect to '/students'
 end
