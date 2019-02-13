@@ -14,7 +14,7 @@ CREATE TABLE tags(
 
 CREATE TABLE transactions(
   id SERIAL8 PRIMARY KEY,
-  amount INT8,
+  amount NUMERIC (7,2),
   merchant_id INT8 REFERENCES merchants(id) ON DELETE SET NULL,
   tag_id INT8 REFERENCES tags(id) ON DELETE SET NULL
 );

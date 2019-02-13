@@ -27,7 +27,6 @@ get '/money-tracker/transactions/:id/edit' do
   @merchants = Merchant.all
   @tags = Tag.all
   @transactions = Transaction.find(params['id'])
-
   erb(:"transactions/edit")
 end
 
@@ -42,8 +41,15 @@ get '/money-tracker/transactions/:id' do
   erb(:"transactions/show")
 end
 
-post '/money-tracker/tags/:id/delete' do
-  tag = Tag.find(params['id'])
+post '/money-tracker/transactions/:id/delete' do
+  tag = Transaction.find(params['id'])
   tag.delete
-  redirect to '/money-tracker/tags'
+  redirect to '/money-tracker/transactions'
 end
+
+# post "/money-tracker/transactions/filter-by-tag" do
+#   tag = params["tag"]
+#   @transactions = Transaction.filter_by_tag(tag.id)
+#   @total_amount_by_tag = Transaction.total_amount_by_tag(tag.id)
+#   erb(:"transactions/filter_by_tag")
+# end

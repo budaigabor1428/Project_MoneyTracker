@@ -4,13 +4,14 @@
   <tr>
   </tr>
   <% for transaction in @transactions %>
-  <tr>
+    <tr>
+
       <div class="transaction">
-        <h3><a href="/money-tracker/transactions/<%= transaction.id %>"><%= transaction.amount %></a></h3>
         <p>Merchant: <%= transaction.merchant.name %></p>
         <p>Tag: <%= transaction.tag.name.capitalize %></p>
+        <p>Amount: <%= sprintf("%.2f", transaction.amount) %> </p>
+        <a href="/money-tracker/transactions/<%= transaction.id %>">Show transaction</a>
       </div>
-
   </tr>
   <% end %>
 </table>

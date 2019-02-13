@@ -1,16 +1,28 @@
 require_relative('../db/sqlrunner')
+require ('pry')
 
 class Transaction
 
-attr_accessor :amount
-attr_reader :id
+  attr_accessor :amount
+  attr_reader :id
 
   def initialize (options)
-    @id = options["id"].to_i if options['id']
-    @amount = options["amount"].to_i
+    @id = options["id"].to_i if options["id"]
+    @amount = options["amount"].to_f
     @merchant_id = options["merchant_id"].to_i
     @tag_id = options["tag_id"].to_i
   end
+
+    def convert_to_pennies(amount)
+      return amount * 100
+    end
+
+    def self.convert_to_pounds(amount)
+      amount_pound = amount / 100
+      amount_decimals = sprintf("%.2f", amount_pound)
+      return amount_decimals
+    end
+
 
     def save()
         sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES ($1, $2, $3) RETURNING id"
@@ -19,7 +31,7 @@ attr_reader :id
         @id = results.first()['id'].to_i
     end
 
-    def self.delete_all
+    def self.delete_all()
         sql = "DELETE FROM transactions"
         SqlRunner.run(sql)
     end
@@ -67,15 +79,15 @@ attr_reader :id
       SqlRunner.run(sql, values)
     end
 
-    # def self.amount_sum()
-    #   sql = "SELECT amount FROM transactions"
-    #   results = SqlRunner.run(sql)
-    #   amount_array = results.map { |amount| Transaction.new(amount)}
-    #   result = 0
-    #     for amount in amount_array
-    #       result += amount
-    #       return result
-    #     end
-    #   end
+    def self.total_spending()
+      sql = "SELECT amount FROM transactions"
+      results = SqlRunner.run(sql)
+      transactions = results.map { |amount| Transaction.new(amount)}
+      result = 0
+        for transaction in transactions
+          result += transaction.amount
+        end
+      return result
+    end
 
 end
