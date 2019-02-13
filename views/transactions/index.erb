@@ -2,9 +2,10 @@
 
 <table style="width:100%">
     <tr>
-        <td>Amount:</td>
-        <td>Merchant:</td>
-        <td>Tag:</td>
+        <th>Amount</th>
+        <th>Merchant</th>
+        <th>Tag</th>
+        <th>Link to transaction</th>
       </tr>
   <% for transaction in @transactions %>
 
@@ -15,4 +16,10 @@
           <td><a href="/money-tracker/transactions/<%= transaction.id %>">Show transaction</a></td>
         </tr>
   <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total spending: £<%= sprintf("%.2f", @total_spending) %></td>
+        </tr>
 </table>

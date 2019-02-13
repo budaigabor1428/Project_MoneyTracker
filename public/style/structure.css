@@ -6,7 +6,7 @@
 body {
   width: 100%;
   background-color: #FCFDAF;
-  font-family: monospace;
+  font-family: sans-serif;
   margin: 0px;
   padding: 0px
 }
@@ -26,11 +26,35 @@ li {
   padding: 15px
 }
 
-a {
+nav li a {
   text-decoration: none;
   color: black
 }
 
+button a {
+  text-decoration: none;
+  color: black;
+}
+
 a:hover {
   color: green;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+table {
+  border: 1;
+}
+
+#logo {
+  height: 40px;
+  max-width: 100%;
+}
+
+#total-spending{
+  display: inline-block;
 }

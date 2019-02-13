@@ -30,6 +30,7 @@ end
 
 get '/money-tracker/merchants/:id' do
   @merchant = Merchant.find(params['id'].to_i)
+  @spending_by_merchant = Transaction.spending_by_merchant(@merchant.id)
   erb(:"merchants/show")
 end
 

@@ -7,6 +7,7 @@ require_relative('../models/transaction.rb')
 also_reload('../models/*')
 
 get '/money-tracker/transactions' do
+  @total_spending = Transaction.total_spending()
   @transactions = Transaction.all()
   erb (:"transactions/index")
 end
@@ -45,10 +46,3 @@ post '/money-tracker/transactions/:id/delete' do
   Transaction.delete(params['id'])
   redirect to '/money-tracker/transactions'
 end
-
-# post "/money-tracker/transactions/filter-by-tag" do
-#   tag = params["tag"]
-#   @transactions = Transaction.filter_by_tag(tag.id)
-#   @total_amount_by_tag = Transaction.total_amount_by_tag(tag.id)
-#   erb(:"transactions/filter_by_tag")
-# end

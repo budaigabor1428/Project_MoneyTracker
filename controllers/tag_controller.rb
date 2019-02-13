@@ -30,6 +30,7 @@ end
 
 get '/money-tracker/tags/:id' do
   @tag = Tag.find(params['id'].to_i)
+  @spending_by_tag = Transaction.spending_by_tag(@tag.id)
   erb(:"tags/show")
 end
 

@@ -6,7 +6,7 @@ class Transaction
   attr_accessor :amount
   attr_reader :id
 
-  def initialize (options)
+  def initialize(options)
     @id = options["id"].to_i if options["id"]
     @amount = options["amount"].to_f
     @merchant_id = options["merchant_id"].to_i
@@ -22,7 +22,6 @@ class Transaction
       amount_decimals = sprintf("%.2f", amount_pound)
       return amount_decimals
     end
-
 
     def save()
         sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES ($1, $2, $3) RETURNING id"
@@ -82,7 +81,31 @@ class Transaction
     def self.total_spending()
       sql = "SELECT amount FROM transactions"
       results = SqlRunner.run(sql)
-      transactions = results.map { |amount| Transaction.new(amount)}
+      transactions = results.map { |transaction| Transaction.new(transaction)}
+      result = 0
+        for transaction in transactions
+          result += transaction.amount
+        end
+      return result
+    end
+
+    def self.spending_by_tag(tag_id)
+      sql = "SELECT * FROM transactions WHERE tag_id = $1"
+      values = [tag_id]
+      transaction_hashes = SqlRunner.run(sql, values)
+      transactions = transaction_hashes.map{|transaction| Transaction.new(transaction)}
+      result = 0
+        for transaction in transactions
+          result += transaction.amount
+        end
+      return result
+    end
+
+    def self.spending_by_merchant(merchant_id)
+      sql = "SELECT * FROM transactions WHERE merchant_id = $1"
+      values = [merchant_id]
+      transaction_hashes = SqlRunner.run(sql, values)
+      transactions = transaction_hashes.map{|transaction| Transaction.new(transaction)}
       result = 0
         for transaction in transactions
           result += transaction.amount
