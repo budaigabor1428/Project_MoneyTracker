@@ -13,16 +13,6 @@ class Transaction
     @tag_id = options["tag_id"].to_i
   end
 
-    def convert_to_pennies(amount)
-      return amount * 100
-    end
-
-    def self.convert_to_pounds(amount)
-      amount_pound = amount / 100
-      amount_decimals = sprintf("%.2f", amount_pound)
-      return amount_decimals
-    end
-
     def save()
         sql = "INSERT INTO transactions (amount, merchant_id, tag_id) VALUES ($1, $2, $3) RETURNING id"
         values = [@amount, @merchant_id, @tag_id]

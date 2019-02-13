@@ -2,17 +2,17 @@
 
 <table style="width:100%">
     <tr>
-        <th>Amount</th>
         <th>Merchant</th>
         <th>Tag</th>
+        <th>Amount</th>
         <th>Link to transaction</th>
       </tr>
   <% for transaction in @transactions %>
 
         <tr>
-          <td> £ <%= sprintf("%.2f", transaction.amount) %></td>
           <td><%= transaction.merchant.name %></td>
           <td><%= transaction.tag.name.capitalize %></td>
+            <td> £ <%= sprintf("%.2f", transaction.amount) %></td>
           <td><a href="/money-tracker/transactions/<%= transaction.id %>">Show transaction</a></td>
         </tr>
   <% end %>
