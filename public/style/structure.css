@@ -1,9 +1,14 @@
+#wrapper {
+  text-align:center;
+  font-size: 28px
+}
+
 body {
   width: 100%;
   background-color: #FCFDAF;
   font-family: monospace;
-  margin: 5px;
-  padding: 5px
+  margin: 0px;
+  padding: 0px
 }
 
 nav {
@@ -22,5 +27,10 @@ li {
 }
 
 a {
-  text-decoration: none
+  text-decoration: none;
+  color: black
+}
+
+a:hover {
+  color: green;
 }
