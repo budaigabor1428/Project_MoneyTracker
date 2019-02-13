@@ -1,13 +1,14 @@
 #wrapper {
   text-align:center;
-  font-size: 28px
+  font-size: 20px
+  font-family: sans-serif;
 }
 
 body {
-  width: 100%;
+  width: 90%;
   background-color: #FCFDAF;
   font-family: sans-serif;
-  margin: 0px;
+  margin: 60px;
   padding: 0px
 }
 
@@ -16,14 +17,14 @@ nav {
   margin: 0px;
   display: inline-block;
   background-color: #F7FFDD;
-  font-family: monospace;
+  font-family: sans-serif;
   width: inherit;
   text-align: center
 }
 
 li {
   display: inline;
-  padding: 15px
+  padding: 20px
 }
 
 nav li a {
@@ -51,7 +52,7 @@ table {
 }
 
 #logo {
-  height: 40px;
+  height: 50px;
   max-width: 100%;
 }
 
