@@ -1,17 +1,18 @@
-<h1>Transactions</h1>
+<h2>Transactions</h2>
 
-<table>
-  <tr>
-  </tr>
-  <% for transaction in @transactions %>
+<table style="width:100%">
     <tr>
+        <td>Amount:</td>
+        <td>Merchant:</td>
+        <td>Tag:</td>
+      </tr>
+  <% for transaction in @transactions %>
 
-      <div class="transaction">
-        <p>Merchant: <%= transaction.merchant.name %></p>
-        <p>Tag: <%= transaction.tag.name.capitalize %></p>
-        <p>Amount: <%= sprintf("%.2f", transaction.amount) %> </p>
-        <a href="/money-tracker/transactions/<%= transaction.id %>">Show transaction</a>
-      </div>
-  </tr>
+        <tr>
+          <td> £ <%= sprintf("%.2f", transaction.amount) %></td>
+          <td><%= transaction.merchant.name %></td>
+          <td><%= transaction.tag.name.capitalize %></td>
+          <td><a href="/money-tracker/transactions/<%= transaction.id %>">Show transaction</a></td>
+        </tr>
   <% end %>
 </table>

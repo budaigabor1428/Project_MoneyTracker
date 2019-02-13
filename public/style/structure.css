@@ -1,0 +1,26 @@
+body {
+  width: 100%;
+  background-color: #FCFDAF;
+  font-family: monospace;
+  margin: 0px;
+  padding: 0px
+}
+
+nav {
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  background-color: #F7FFDD;
+  font-family: monospace;
+  width: inherit;
+  text-align: center
+}
+
+li {
+  display: inline;
+  padding: 15px
+}
+
+a {
+  text-decoration: none
+}

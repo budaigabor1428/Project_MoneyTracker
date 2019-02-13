@@ -42,8 +42,7 @@ get '/money-tracker/transactions/:id' do
 end
 
 post '/money-tracker/transactions/:id/delete' do
-  tag = Transaction.find(params['id'])
-  tag.delete
+  Transaction.delete(params['id'])
   redirect to '/money-tracker/transactions'
 end
 
